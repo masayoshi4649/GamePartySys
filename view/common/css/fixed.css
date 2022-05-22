@@ -1,0 +1,24 @@
+#header,
+#footer {
+    position: fixed;
+    width   : 100%;
+    height  : 35px;
+    padding : 10px;
+    /* 35+10+10=55px */
+    left    : 0;
+}
+
+#header {
+    top             : 0;
+    background-color: aqua;
+}
+
+#footer {
+    bottom          : 0;
+    background-color: rgb(176, 156, 195);
+}
+
+#main {
+    top     : 60px;
+    position: relative;
+}

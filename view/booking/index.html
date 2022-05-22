@@ -1,0 +1,32 @@
+{{ define "booking/index.html" }}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+
+<div id="main">
+    絞り込み
+    ・募集種別
+    <div id="recruitTable"></div>
+
+    <div id="details"></div>
+    <div id="creatept"></div>
+
+</div>
+
+<link href="https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator_midnight.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.2.3/dist/js/tabulator.js" defer></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/luxon@2.3.2/build/global/luxon.js" defer></script>
+<script src="js/index.js" defer></script>
+
+{{template "common/header.html" }}
+{{template "common/footer.html" }}
+
+</html>
+{{ end }}

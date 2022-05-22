@@ -1,0 +1,20 @@
+[App]
+Myhostname = "http://192.168.1.42:8080/"
+# Myhostname = "http://localhost:8080/"
+Port = "8080"
+Session = "DevSession"
+
+[Discord]
+AuthScope = "identify%20email"
+AuthURI = "https://discord.com/api/oauth2/authorize?client_id=【clientID】&redirect_uri=【enc_redirect_uri】&response_type=code&scope=【enc_scope】"
+ClientID = ""
+ClientSecret = ""
+OauthDir = "auth/oauth"
+TokenURI = "https://discordapp.com/api/oauth2/token"
+
+[Postgres]
+DatabaseName = "gamepartydb"
+Host = "192.168.80.128"
+Port = "5432"
+PsqlID = "postgres"
+PsqlPass = "postgres"

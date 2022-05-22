@@ -1,0 +1,78 @@
+import (
+	"database/sql"
+	"fmt"
+
+	"github.com/masayoshi4649/GamePartySys/src/common"
+)
+
+// Select_Instance_Info
+type instanceInfo struct {
+	instanceID      int
+	gameTypeName    string
+	playStyle       int
+	maxJoin         int
+	recruitTitle    string
+	recruitPlace    string
+	recruitComment  string
+	recruitDue      string
+	meetingTime     string
+	joinPassExist   bool
+	recruitType     int
+	recruitTypeName string
+	createUserName  string
+}
+
+func SelectInstanceInfo() []map[string]interface{} {
+	query, _ := common.ReadSQLFile("./sqlModel/Select_instance_info.sql")
+
+	conf := common.Config
+	db, err := sql.Open("postgres", conf.Postgres.ConnectStr)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	rows, err := db.Query(query)
+	if err != nil {
+		panic(err)
+	}
+
+	var instanceInfo instanceInfo
+	var allres []map[string]interface{}
+	for rows.Next() {
+		rows.Scan(
+			&instanceInfo.instanceID,
+			&instanceInfo.gameTypeName,
+			&instanceInfo.playStyle,
+			&instanceInfo.maxJoin,
+			&instanceInfo.recruitTitle,
+			&instanceInfo.recruitPlace,
+			&instanceInfo.recruitComment,
+			&instanceInfo.recruitDue,
+			&instanceInfo.meetingTime,
+			&instanceInfo.joinPassExist,
+			&instanceInfo.recruitType,
+			&instanceInfo.recruitTypeName,
+			&instanceInfo.createUserName,
+		)
+		res := make(map[string]interface{})
+		res["instanceId"] = instanceInfo.instanceID
+		res["gameTypeName"] = instanceInfo.gameTypeName
+		res["playStyle"] = instanceInfo.playStyle
+		res["maxJoin"] = instanceInfo.maxJoin
+		res["recruitTitle"] = instanceInfo.recruitTitle
+		res["recruitPlace"] = instanceInfo.recruitPlace
+		res["recruitComment"] = instanceInfo.recruitComment
+		res["recruitDue"] = instanceInfo.recruitDue
+		res["meetingTime"] = instanceInfo.meetingTime
+		res["joinPassExist"] = instanceInfo.joinPassExist
+		res["recruitType"] = instanceInfo.recruitType
+		res["recruitTypeName"] = instanceInfo.recruitTypeName
+		res["createUserName"] = instanceInfo.createUserName
+
+		fmt.Println(instanceInfo)
+		// res = json.Marshal(instanceInfo)
+		allres = append(allres, res)
+	}
+	return allres
+}
