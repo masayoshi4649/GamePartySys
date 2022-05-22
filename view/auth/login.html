@@ -1,0 +1,19 @@
+{{ define "auth/login.html" }}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/auth/css/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="content">
+        <input type="button" id="discordLogin" onclick="location.href='{{.discordURL}}'">ログイン</button>
+    </div>
+</body>
+
+</html>
+{{ end }}

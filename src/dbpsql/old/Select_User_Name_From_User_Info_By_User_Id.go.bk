@@ -1,0 +1,33 @@
+import (
+	"database/sql"
+	"fmt"
+	
+	"github.com/masayoshi4649/GamePartySys/src/common"
+)
+
+// Select_User_Name_From_User_Info_By_User_Id
+type userNameStruct struct {
+	userName string
+}
+
+// SelectUserNameFromUserInfoByUserID ... ユーザ一覧取得
+func SelectUserNameFromUserInfoByUserID(userid string) string {
+	conf := common.Config
+	db, err := sql.Open("postgres", conf.Postgres.ConnectStr)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	query, _ := common.ReadSQLFile("./sqlModel/Select_User_Name_From_User_Info_By_User_Id.sql")
+
+	fmt.Println(query)
+	row := db.QueryRow(query, userid)
+	if err != nil {
+		panic(err)
+	}
+	var p userNameStruct
+	row.Scan(&p.userName)
+	fmt.Println("userName=>", p.userName)
+	return p.userName
+}

@@ -1,0 +1,8 @@
+﻿"grid_theme_pattern","pattern_name","url"
+1,"Normal","https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator.css"
+2,"Midnight","https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator_midnight.css"
+3,"Site","https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator_site.css"
+4,"Bulma","https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator_bulma.css"
+5,"Materialize","https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator_materialize.css"
+6,"Modern","https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator_modern.css"
+7,"Semanticui","https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator_semanticui.css"
